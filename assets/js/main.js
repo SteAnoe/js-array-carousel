@@ -25,18 +25,20 @@ let img = document.querySelector('.img');
 img.src = "https://picsum.photos/id/235/800/400"
 
 next.addEventListener('click', function(){
-    if( currentImg == 4) {
-        currentImg = -1;
+    if( currentImg == arrayImg.length - 1) {
+        currentImg = 0;
+    } else {
+        currentImg++;
     }
-    currentImg++;
     img.src = arrayImg[currentImg];
 })
 
 prev.addEventListener('click', function(){
     if( currentImg == 0 ){
-        currentImg = 5;
-    }
+        currentImg = arrayImg.length - 1;
+    } else {
     currentImg--;
+    }
     img.src = arrayImg[currentImg];
 })
 
@@ -54,4 +56,5 @@ for (let i = 0; i < arrayImg.length; i++) {
  
 function changeImg(num){
     img.src = arrayImg[num];
+    currentImg = num;
 }
